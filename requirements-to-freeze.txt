@@ -1,0 +1,15 @@
+appdirs
+certifi
+chardet
+Django
+idna
+packaging
+pkginfo
+pyparsing
+pytz
+requests
+requests-toolbelt
+six
+tqdm
+twine
+urllib3
