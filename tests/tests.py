@@ -18,6 +18,14 @@ class IncludeStaticTestCase(TestCase):
         # Assert
         self.assertIn("The quick brown fox jumped over the lazy dog.", rendered)
 
+    def test_resulting_file_includes_unescaped_static_file(self):
+        # Arrange
+        template = Template("abc {% load amptags %}{% include_static 'tests/static_file_with_escapables.txt' %} xyz")
 
+        # Act
+        rendered = template.render(Context({}))
+
+        # Assert
+        self.assertIn("The \"quick\" brown fox 'jumped' over the <lazy> dog.", rendered)
 
 

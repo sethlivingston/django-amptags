@@ -1,5 +1,6 @@
 from django import template
 from django.contrib.staticfiles import finders
+from django.utils.safestring import mark_safe
 
 register = template.Library()
 
@@ -10,5 +11,5 @@ def include_static(path: str):
     actual_path = finders.find(path)
     with open(actual_path, 'r', encoding='UTF-8') as f:
         content = f.read()
-        return content
+        return mark_safe(content)
 
