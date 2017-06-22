@@ -28,4 +28,7 @@ class IncludeStaticTestCase(TestCase):
         # Assert
         self.assertIn("The \"quick\" brown fox 'jumped' over the <lazy> dog.", rendered)
 
+# TODO: Tests for include_css
+# TODO: Tests for AMPPostMiddleware
+
 
