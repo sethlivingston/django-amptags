@@ -14,3 +14,8 @@ Quick Start
         'amptags',
     ]
 
+Building django-amptags
+-----------------------
+
+1. Run `python setup.py sdist`.
+2. Run `twine upload dist/<package>`.

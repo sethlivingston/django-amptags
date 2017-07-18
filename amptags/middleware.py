@@ -37,8 +37,12 @@ class AMPPostMiddleware(object):
         if request.method != 'POST':
             return self.get_response(request)
 
-        origin = request.META.get('HTTP_ORIGIN')
+        # AMP rules only apply to requests sent by the AMP runtime
         amp_source_origin = request.GET.get('__amp_source_origin')
+        if not amp_source_origin:
+            return self.get_response(request)
+
+        origin = request.META.get('HTTP_ORIGIN')
 
         # If the origin header is present...
         if origin:
